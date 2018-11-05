@@ -1,0 +1,76 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 40vmin;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+.jumbotron {
+  width: 26rem; 
+  height: 11rem;
+}
+
+#nrp {
+  margin-top: -5rem;
+  font-weight: 800;
+  background-color: #61dafb;
+  font-family: fantasy;
+  width: 12rem;
+}
+
+#rp {
+  margin-top: -1.5rem;
+  font-weight: 800;
+  background-color: #f7972b;
+  font-family: fantasy;
+  width: 12rem;
+}
+
+#rst {
+  margin-top: 0.5rem;
+  font-weight: 800;
+  background-color: #1be736;
+  font-family: fantasy;
+  width: 12rem;
+}
+
+.dataForm {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.result {
+  margin-top: -1rem;
+  
+}
+
+.card-img-top {
+  width: 26rem; 
+  height: 15rem; 
+  margin-top: 0rem;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
