@@ -14,12 +14,13 @@ class App extends Component {
         'Mason', 'Robert', 'Jacob', 'Michael','Charlie', 'Kyle', 'William', 'Thomas', 'Joe', 'Ethan', 'David', 
         'George', 'Reece', 'Richard', 'Oscar', 'Rhys', 'Alexander', 'Joseph', 'Amelia', 'Margaret','Emma', 'Mary', 
         'Olivia', 'Samantha', 'Patricia', 'Isla', 'Bethany', 'Sophia', 'Jennifer', 'Emily', 'Elizabeth', 'Poppy', 
-        'Joanne', 'Ava', 'Linda', 'Ava','Megan', 'Mia', 'Barbara', 'Victoria'], stu_with_rp: "", stu_without_rp: "",
+        'Joanne', 'Ava', 'Linda','Megan', 'Mia', 'Barbara', 'Victoria'], stu_with_rp: "", stu_without_rp: "",
         cpy_nameList: ['Oliver', 'Jake', 'Noah', 'James', 'Jack', 'Connor', 'Liam', 'John', 'Harry', 'Callum', 
         'Mason', 'Robert', 'Jacob', 'Michael','Charlie', 'Kyle', 'William', 'Thomas', 'Joe', 'Ethan', 'David', 
         'George', 'Reece', 'Richard', 'Oscar', 'Rhys', 'Alexander', 'Joseph', 'Amelia', 'Margaret','Emma', 'Mary', 
         'Olivia', 'Samantha', 'Patricia', 'Isla', 'Bethany', 'Sophia', 'Jennifer', 'Emily', 'Elizabeth', 'Poppy', 
-        'Joanne', 'Ava', 'Linda', 'Ava','Megan', 'Mia', 'Barbara', 'Victoria']
+        'Joanne', 'Ava', 'Linda', 'Megan', 'Mia', 'Barbara', 'Victoria'],
+        resetRP: false
       };
     this.handleNrp = this.handleNrp.bind(this);
     this.handleWrp = this.handleWrp.bind(this);
@@ -33,13 +34,15 @@ class App extends Component {
 
   handleWrp = (data1) => {
     this.setState({
-      stu_with_rp: data1
+      stu_with_rp: data1,
+      resetRP: false
     })
   }
 
   Reset_state = () => {
-    this.setState({stu_with_rp: "", stu_without_rp: ""}) 
-    this.state.cpy_nameList = this.state.student_name.slice()
+    this.setState({stu_with_rp: "", stu_without_rp: "",
+    cpy_nameList: this.state.student_name.slice(),
+    resetRP: true})
   }
 
   render() {
@@ -54,7 +57,8 @@ class App extends Component {
         <Button_nrp nameList={this.state.cpy_nameList} handlerFromParant={this.handleNrp} />
       </div>
       <div>
-        <Button_rp nameList={this.state.student_name} handlerFromParant={this.handleWrp} />
+        <Button_rp nameList={this.state.student_name} handlerWrp={this.handleWrp} 
+        handlerFromParant={this.Reset_state} reset={this.state.resetRP} />
       </div>
       <div>
         <button type="submit" class="btn btn-primar" id="rst" onClick={this.Reset_state}>Reset</button>

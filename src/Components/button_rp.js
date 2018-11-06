@@ -4,7 +4,7 @@ class Button_rp extends React.Component {
 
     constructor() {
         super();
-        this.state = { stu: "", stu_called: [{ name: "", times: 0 }] };
+        this.state = { stu: "", stu_called: [{ name: "", times: 0 }]};
         this.handleClick = this.handleClick.bind(this);
     }
 
@@ -13,19 +13,25 @@ class Button_rp extends React.Component {
         let student = list[idx];
         this.setState({ stu: student });
         for (let i=0; i<this.state.stu_called.length; i++) {
-            if (this.state.stu_called[i].name == student) {
+            if (this.state.stu_called[i].name === student) {
                 this.setState({ stu_called: this.state.stu_called[i].times += 1 });
                 alert(this.state.stu + 'has been called ' + this.state.stu_called[i].times + " times!")
             } else {
                 this.setState({ stu_called: this.state.stu_called.concat({ name: student, times: 1 }) })
-            }
+            }    
         }
-    }
+        if(this.props.reset === true){
+            this.setState({stu: "", stu_called: [{ name: "", times: 0 }]})
+        }
+        }
+
+        
+    
 
     handleClick = (e) => {
         e.preventDefault();
         this.Choose_stu(this.props.nameList);
-        this.props.handlerFromParant(this.state.stu);
+        this.props.handlerWrp(this.state.stu);
     }
 
     render() {
