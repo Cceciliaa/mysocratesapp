@@ -15,7 +15,7 @@ class Button_rp extends React.Component {
         for (let i=0; i<this.state.stu_called.length; i++) {
             if (this.state.stu_called[i].name === student) {
                 this.setState({ stu_called: this.state.stu_called[i].times += 1 });
-                alert(this.state.stu + 'has been called ' + this.state.stu_called[i].times + " times!")
+                alert(this.state.stu + ' has been called ' + this.state.stu_called[i].times + " times!")
             } else {
                 this.setState({ stu_called: this.state.stu_called.concat({ name: student, times: 1 }) })
             }    
